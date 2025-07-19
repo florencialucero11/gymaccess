@@ -1,0 +1,32 @@
+{
+  "name": "gymaccess-backend",
+  "version": "1.0.0",
+  "description": "Backend para GymAccess App: control de ingreso a gimnasios con QR y reconocimiento facial",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "gym",
+    "qr",
+    "nodejs",
+    "express",
+    "postgresql",
+    "jwt"
+  ],
+  "author": "Florencia Lucero",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
