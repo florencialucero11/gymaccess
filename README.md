@@ -84,3 +84,122 @@ CREATE TABLE IF NOT EXISTS users (
 
 # 4. Iniciar servidor en desarrollo
 npm run dev
+
+📌 CRUD de Usuarios (solo admin)
+⚠️ IMPORTANTE:
+Todas estas rutas necesitan:
+
+Haber iniciado sesión con un usuario admin (por ejemplo flor2@example.com)
+
+Incluir el token JWT en el header de la request:
+
+makefile
+Copiar
+Editar
+Authorization: Bearer TU_TOKEN
+✅ Obtener todos los usuarios
+Método: GET
+
+Endpoint: /api/users
+
+Respuesta:
+
+json
+Copiar
+Editar
+[
+  { "id": 1, "name": "Florencia", "email": "flor@example.com", "role": "user" },
+  { "id": 2, "name": "Flor Test", "email": "flor2@example.com", "role": "admin" }
+]
+🔍 Obtener usuario por ID
+Método: GET
+
+Endpoint: /api/users/:id
+
+Ejemplo: /api/users/2
+
+Respuesta:
+
+json
+Copiar
+Editar
+{
+  "id": 2,
+  "name": "Flor Test",
+  "email": "flor2@example.com",
+  "role": "admin"
+}
+➕ Crear nuevo usuario
+Método: POST
+
+Endpoint: /api/users
+
+Body (JSON):
+
+json
+Copiar
+Editar
+{
+  "name": "Nuevo User",
+  "email": "nuevo@example.com",
+  "password": "1234",
+  "role": "user"
+}
+Respuesta:
+
+json
+Copiar
+Editar
+{
+  "id": 3,
+  "name": "Nuevo User",
+  "email": "nuevo@example.com",
+  "role": "user"
+}
+✏️ Actualizar usuario
+Método: PUT
+
+Endpoint: /api/users/:id
+
+Ejemplo: /api/users/3
+
+Body (JSON):
+
+json
+Copiar
+Editar
+{
+  "name": "Usuario Actualizado",
+  "email": "actualizado@example.com",
+  "role": "admin"
+}
+Respuesta:
+
+json
+Copiar
+Editar
+{
+  "message": "Usuario actualizado",
+  "user": {
+    "id": 3,
+    "name": "Usuario Actualizado",
+    "email": "actualizado@example.com",
+    "role": "admin"
+  }
+}
+🗑️ Eliminar usuario
+Método: DELETE
+
+Endpoint: /api/users/:id
+
+Ejemplo: /api/users/3
+
+Respuesta:
+
+json
+Copiar
+Editar
+{
+  "message": "Usuario eliminado",
+  "id": "3"
+}

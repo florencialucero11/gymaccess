@@ -1,8 +1,12 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import pool from './config/db.js';
 import authRoutes from './routes/auth.js';
 import dashboardRoutes from './routes/dashboard.js';
+import attendanceRoutes from './routes/attendance.js';  //  importar
+import userRoutes from './routes/user.js';
+
 
 
 
@@ -10,13 +14,17 @@ dotenv.config();
 
 const app = express();
 
-// Middleware para leer JSON en las requests
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
+
 app.use(express.json());
 
 // Rutas
 app.use('/api', authRoutes);
 app.use('/api', dashboardRoutes);
-
+app.use('/api', attendanceRoutes); // montar
+app.use('/api', userRoutes);
 
 // Conectar a la base de datos y arrancar el servidor
 (async () => {
